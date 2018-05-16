@@ -1,0 +1,366 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://training.com/quizzer/soap"
+           targetNamespace="http://training.com/quizzer/soap" elementFormDefault="qualified">
+
+<!-- Entities: -->
+	<xs:complexType name = "location">
+		<xs:sequence>
+			<xs:element name = "locationId" type = "xs:long"/>
+			<xs:element name = "locationName" type = "xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name = "warehouse">
+		<xs:sequence>
+			<xs:element name = "warehouseId" type = "xs:long"/>
+			<xs:element name = "warehouseName" type = "xs:string"/>
+			<xs:element name = "warehouseLocation" type = "tns:location"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name = "producer">
+		<xs:sequence>
+			<xs:element name = "producerId" type = "xs:long"/>
+			<xs:element name = "producerName" type = "xs:string"/>
+			<xs:element name = "producerProducts" type = "tns:product" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name = "product">
+		<xs:sequence>
+			<xs:element name = "productId" type = "xs:long"/>
+			<xs:element name = "productName" type = "xs:string"/>
+			<xs:element name = "productProducerId" type = "xs:long"/>
+			<xs:element name = "productWarehouse" type = "tns:warehouse"/>
+			<xs:element name = "productQuantity" type = "xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+
+<!-- Request&Response pairs: -->
+	<xs:element name = "createLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationName" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "createLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "createWarehouseRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseName" type = "xs:string"/>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "createWarehouseResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "createProductRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "productName" type = "xs:string"/>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+				<xs:element name = "producerId" type = "xs:long"/>
+				<xs:element name = "quantity" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "createProductResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteWarehouseRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteWarehouseResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteProductRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "productId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "deleteProductResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findLocationByNameRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationName" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findLocationByNameResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "location" type = "tns:location"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehouseByNameRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseName" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehouseByNameResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouse" type = "tns:warehouse"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findLocationByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findLocationByIdResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "location" type = "tns:location"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehouseByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehouseByIdResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouse" type = "tns:warehouse"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findProductByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "productId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findProductByIdResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "product" type = "tns:product"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllLocationsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string" default = "Finding all locations."/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllLocationsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locations" type = "tns:location" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllWarehousesRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string" default = "Finding all warehouses."/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllWarehousesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouses" type = "tns:warehouse" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllProductsRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string" default = "Finding all products."/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findAllProductsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "products" type = "tns:product" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "addWarehouseToLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseName" type = "xs:string"/>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "addWarehouseToLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "removeWarehousesFromLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	 
+	<xs:element name = "removeWarehousesFromLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehousesFromLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "locationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findWarehousesFromLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouses" type = "tns:warehouse" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	
+	
+	<xs:element name = "renameWarehouseRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+				<xs:element name = "newWarehouseName" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "renameWarehouseResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "changeWarehouseLocationRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+				<xs:element name = "newLocationId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "changeWarehouseLocationResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "message" type = "xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findProductsFromWarehouseRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "warehouseId" type = "xs:long"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name = "findProductsFromWarehouseResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name = "products" type = "tns:product" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

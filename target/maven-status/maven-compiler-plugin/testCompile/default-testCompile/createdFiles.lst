@@ -1,0 +1,4 @@
+com\training\quizzer\quizzerApplicationTests.class
+com\training\quizzer\service\ProductServiceTest.class
+com\training\quizzer\service\LocationServiceTest.class
+com\training\quizzer\service\WarehouseServiceTest.class
