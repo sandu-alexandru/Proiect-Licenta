@@ -194,9 +194,13 @@ public class AdminView extends HorizontalLayout implements View{
         manageQuestionsLayout.addComponent(questionDomainAndLevel);
 
         TextField questionText = new TextField();
-        questionText.setWidth("200");
+        questionText.setWidth("400");
         questionText.setPlaceholder("Question ...");
         manageQuestionsLayout.addComponent(questionText);
+
+        HorizontalLayout responsesLayout = new HorizontalLayout();
+        VerticalLayout textResponsesLayout = new VerticalLayout();
+        VerticalLayout correctResponseLayout = new VerticalLayout();
 
         TextField questionAnswer1 = new TextField();
         questionAnswer1.setWidth("200");
@@ -210,19 +214,34 @@ public class AdminView extends HorizontalLayout implements View{
         questionAnswer3.setWidth("200");
         questionAnswer3.setPlaceholder("Third answer ...");
 
-        HorizontalLayout questionAnswers = new HorizontalLayout();
-        questionAnswers.addComponents(questionAnswer1, questionAnswer2, questionAnswer3);
-        manageQuestionsLayout.addComponent(questionAnswers);
+        RadioButtonGroup<String> correctResponsesGroup = new RadioButtonGroup<>();
+        correctResponsesGroup.setItems("A", "B", "C");
 
-        TextField questionCorrect = new TextField();
-        questionCorrect.setWidth("200");
-        questionCorrect.setPlaceholder("Correct answer ...");
-        manageQuestionsLayout.addComponent(questionCorrect);
+        correctResponseLayout.addComponent(correctResponsesGroup);
+        textResponsesLayout.addComponents(questionAnswer1, questionAnswer2, questionAnswer3);
 
+        responsesLayout.addComponents(textResponsesLayout, correctResponseLayout);
+        manageQuestionsLayout.addComponent(responsesLayout);
+
+//        manageQuestionsLayout.addComponent(correctResponseLayout);
+
+//        HorizontalLayout questionAnswers = new HorizontalLayout();
+//        questionAnswers.addComponents(questionAnswer1, questionAnswer2, questionAnswer3);
+//        manageQuestionsLayout.addComponent(questionAnswers);
+
+//        TextField questionCorrect = new TextField();
+//        questionCorrect.setWidth("200");
+//        questionCorrect.setPlaceholder("Correct answer ...");
+//        manageQuestionsLayout.addComponent(questionCorrect);
+            
+        
+        
         Button addQuestion = new Button("Add Question");
         addQuestion.setWidth("200");
         addQuestion.addClickListener(clickEvent -> {
             String level = questionLevels.getValue();
+            String response = getResponseSelection(correctResponsesGroup, questionAnswer1.getValue(), 
+                    questionAnswer2.getValue(), questionAnswer3.getValue());
             if (level.equals("Level 1")){
                 Level1 toBeAdded = new Level1();
 
@@ -231,7 +250,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level1Repository.save(toBeAdded);
 
@@ -243,7 +262,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level2Repository.save(toBeAdded);
 
@@ -255,7 +274,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level3Repository.save(toBeAdded);
 
@@ -267,7 +286,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level4Repository.save(toBeAdded);
 
@@ -279,7 +298,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level5Repository.save(toBeAdded);
 
@@ -291,7 +310,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level6Repository.save(toBeAdded);
 
@@ -303,7 +322,7 @@ public class AdminView extends HorizontalLayout implements View{
                 toBeAdded.setAnswer1(questionAnswer1.getValue());
                 toBeAdded.setAnswer2(questionAnswer2.getValue());
                 toBeAdded.setAnswer3(questionAnswer3.getValue());
-                toBeAdded.setCorrect(questionCorrect.getValue());
+                toBeAdded.setCorrect(response);
 
                 levelService.level7Repository.save(toBeAdded);
 
@@ -313,13 +332,23 @@ public class AdminView extends HorizontalLayout implements View{
             questionAnswer1.clear();
             questionAnswer2.clear();
             questionAnswer3.clear();
-            questionCorrect.clear();
+//            questionCorrect.clear();
 
             setQuestionsLayout(levelsComboBox.getValue(), domainsComboBox.getValue());
         });
         manageQuestionsLayout.addComponent(addQuestion);
 
         addComponent(manageQuestionsLayout);
+    }
+
+    private String getResponseSelection(RadioButtonGroup responseGroup, String answer1, String answer2, String answer3) {
+        if(responseGroup.getSelectedItem().toString().contains("A"))
+            return answer1;
+        else if(responseGroup.getSelectedItem().toString().contains("B"))
+            return answer2;
+        else if(responseGroup.getSelectedItem().toString().contains("C"))
+            return answer3;
+        else return "no selection";
     }
 
     private void setQuestionsLayout(String level, String domain) {
