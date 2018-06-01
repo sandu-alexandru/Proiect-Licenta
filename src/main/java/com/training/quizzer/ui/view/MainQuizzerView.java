@@ -24,6 +24,7 @@ public class MainQuizzerView extends VerticalLayout implements View{
     UserService userService;
 
     VerticalLayout domainChangeLayout;
+    ComboBox<String> availableDomainsCombobox;
 
     @Override
     public void enter(ViewChangeListener.ViewChangeEvent viewChangeEvent) {
@@ -42,7 +43,7 @@ public class MainQuizzerView extends VerticalLayout implements View{
 
     private void setComponents() {
 
-        ComboBox<String> availableDomainsCombobox = new ComboBox<>();
+        availableDomainsCombobox = new ComboBox<>();
         availableDomainsCombobox.setItems(domainRepository.getDomains());
 
         setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
@@ -85,7 +86,9 @@ public class MainQuizzerView extends VerticalLayout implements View{
         domainChangeLayout.setVisible(false);
 
         confirmDomainChange.addClickListener(event -> handleDomainChange(availableDomainsCombobox.getSelectedItem().get()));
-        cancelDomainChange.addClickListener(event -> {domainChangeLayout.setVisible(false);});
+        cancelDomainChange.addClickListener(event -> {
+            revertToOriginalDomain();
+        });
 
         // General app description
         addComponent(new Label());
@@ -94,6 +97,11 @@ public class MainQuizzerView extends VerticalLayout implements View{
         addComponent(new Label());
         addComponent(new Label("After having a minimum of 60% on the last 3 training sessions for his current level,"));
         addComponent(new Label("The user is allowed to take a test which, if passed, enables access to the next level."));
+    }
+
+    private void revertToOriginalDomain() {
+        domainChangeLayout.setVisible(false);
+        availableDomainsCombobox.setSelectedItem(user.getDomain());
     }
 
     private void handleDomainChange(String newDomain) {

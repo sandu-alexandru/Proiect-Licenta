@@ -223,9 +223,9 @@ public class quizzerUI extends UI {
         adminButton = new Button("Administration");
         adminButton.setWidth("180");
 
-        navigationButtons.addComponents(logoutButton, new Label(), new Label(), homeButton, new Label("Levels board: "),
+        navigationButtons.addComponents(homeButton, adminButton, logoutButton, new Label(), new Label(),  new Label("Levels board: "),
                 level1Button, level2Button, level3Button, level4Button, level5Button, level6Button, level7Button,
-                new Label(), new Label(), adminButton);
+                new Label());
     }
 
     private void addButtonListeners() {

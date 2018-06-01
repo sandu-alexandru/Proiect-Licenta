@@ -122,12 +122,12 @@ public class Level6TestView extends VerticalLayout implements View{
         resultLayout.addComponent(new Label());
         resultLayout.addComponent(new Label());
         if (result.equals("success")){
-            resultLayout.addComponent(new Label(" Felicitari, ai trecut la nivelul urmator !!!"));
+            resultLayout.addComponent(new Label(" Congratulations, you managed to pass to the next level !!!"));
         } else {
-            resultLayout.addComponent(new Label(" Ghinion, nu ai reusit sa treci! Mai invata!"));
+            resultLayout.addComponent(new Label(" Unfortunately, you didn't managed to pass ! Keep learning !"));
         }
         resultLayout.addComponent(new Label());
-        resultLayout.addComponent(new Label("Scorul tau este de " + userScore + " puncte"));
+        resultLayout.addComponent(new Label("Your score is " + userScore + " points"));
         resultLayout.addComponent(new Label());
         resultLayout.addComponent(returnButton);
         mainLayout.setVisible(false);

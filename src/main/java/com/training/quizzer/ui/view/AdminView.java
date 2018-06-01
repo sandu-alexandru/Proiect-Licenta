@@ -18,6 +18,7 @@ import java.util.List;
 @SpringView(name = AdminView.VIEW_NAME)
 public class AdminView extends HorizontalLayout implements View{
     public static final String VIEW_NAME = "adminView";
+    public static final int NUMBER_OF_QUESTIONS_SUPPORTED_FOR_EDITING = 1;
     public User user;
 
     @Autowired
@@ -177,7 +178,16 @@ public class AdminView extends HorizontalLayout implements View{
                 }});
             setQuestionsLayout(levelsComboBox.getValue(), domainsComboBox.getValue());
         });
-        manageQuestionsLayout.addComponent(deleteQuestionsButton);
+        HorizontalLayout deleteAndEditButtonsLayout = new HorizontalLayout();
+        Button editQuestionButton = new Button("Edit Question");
+        editQuestionButton.setWidth("150");
+        editQuestionButton.addClickListener(event->{
+            handleQuestionEditing();
+        });
+
+        deleteAndEditButtonsLayout.addComponents(deleteQuestionsButton, editQuestionButton);
+        manageQuestionsLayout.addComponent(deleteAndEditButtonsLayout);
+//        manageQuestionsLayout.addComponent(deleteQuestionsButton);
 
         manageQuestionsLayout.addComponent(new Label());
         manageQuestionsLayout.addComponent(new Label("Add a new question: "));
@@ -339,6 +349,269 @@ public class AdminView extends HorizontalLayout implements View{
         manageQuestionsLayout.addComponent(addQuestion);
 
         addComponent(manageQuestionsLayout);
+    }
+
+    private void handleQuestionEditing() {
+        int selectedValues = 0;
+        for(CheckBox question : questions)
+            if (question.getValue())
+                selectedValues++;
+        if (selectedValues == NUMBER_OF_QUESTIONS_SUPPORTED_FOR_EDITING) {
+            prepareEditingQuestionWindow();
+        } else if (selectedValues > NUMBER_OF_QUESTIONS_SUPPORTED_FOR_EDITING) {
+            warnUserForMultipleQuestionsSelected();
+        } else if (selectedValues < NUMBER_OF_QUESTIONS_SUPPORTED_FOR_EDITING) {
+            warnUserToSelectAQuestion();
+        }
+
+    }
+
+    private void warnUserToSelectAQuestion() {
+        Notification.show("Please select one question to edit ", Notification.Type.WARNING_MESSAGE);
+    }
+
+    private void warnUserForMultipleQuestionsSelected() {
+        Notification.show("Multiple Questions selected, can't edit more than "
+                        + NUMBER_OF_QUESTIONS_SUPPORTED_FOR_EDITING + " at once"
+                , Notification.Type.WARNING_MESSAGE);
+    }
+
+    private void prepareEditingQuestionWindow() {
+        VerticalLayout editQuestionLayoutContent = new VerticalLayout();
+
+        Window editQuestionWindow = new Window("Edit Question");
+        editQuestionWindow.setContent(editQuestionLayoutContent);
+
+//        ComboBox<String> questionDomains = new ComboBox<>();
+//        questionDomains.setWidth("200");
+//        questionDomains.setItems(getDomains());
+//        ComboBox<String> questionLevels = new ComboBox<>();
+//        questionLevels.setWidth("200");
+//        questionLevels.setItems(getLevels());
+//
+//        HorizontalLayout questionDomainAndLevel = new HorizontalLayout();
+//        questionDomainAndLevel.addComponents(questionLevels, questionDomains);
+//        editQuestionLayoutContent.addComponent(questionDomainAndLevel);
+
+        TextField questionText = new TextField();
+        questionText.setWidth("400");
+        questionText.setPlaceholder("Question ...");
+        editQuestionLayoutContent.addComponent(questionText);
+
+        HorizontalLayout responsesLayout = new HorizontalLayout();
+        VerticalLayout textResponsesLayout = new VerticalLayout();
+        VerticalLayout correctResponseLayout = new VerticalLayout();
+
+        TextField questionAnswer1 = new TextField();
+        questionAnswer1.setWidth("200");
+        questionAnswer1.setPlaceholder("First answer ...");
+
+        TextField questionAnswer2 = new TextField();
+        questionAnswer2.setWidth("200");
+        questionAnswer2.setPlaceholder("Second answer ...");
+
+        TextField questionAnswer3 = new TextField();
+        questionAnswer3.setWidth("200");
+        questionAnswer3.setPlaceholder("Third answer ...");
+
+        RadioButtonGroup<String> correctResponsesGroup = new RadioButtonGroup<>();
+        correctResponsesGroup.setItems("A", "B", "C");
+
+        correctResponseLayout.addComponent(correctResponsesGroup);
+        textResponsesLayout.addComponents(questionAnswer1, questionAnswer2, questionAnswer3);
+
+        responsesLayout.addComponents(textResponsesLayout, correctResponseLayout);
+        editQuestionLayoutContent.addComponent(responsesLayout);
+
+        Button saveChangesButton = new Button("Save");
+        saveChangesButton.setWidth("150");
+        Button cancelChangesButton = new Button("Cancel");
+        cancelChangesButton.setWidth("150");
+
+        HorizontalLayout saveAndCancelButtonslayout = new HorizontalLayout();
+        saveAndCancelButtonslayout.addComponents(saveChangesButton, cancelChangesButton);
+        editQuestionLayoutContent.addComponents(saveAndCancelButtonslayout);
+
+        String questionCapt="";
+        String level = levelsComboBox.getValue();
+        for(CheckBox question : questions)
+            if (question.getValue())
+                questionCapt = question.getCaption();
+        final String questionCaption = questionCapt;
+
+        if (level.equals("Level 1")){
+            Level1 toBeEdited = levelService.level1Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 2")){
+            Level2 toBeEdited = levelService.level2Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 3")){
+            Level3 toBeEdited = levelService.level3Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 4")){
+            Level4 toBeEdited = levelService.level4Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 5")){
+            Level5 toBeEdited = levelService.level5Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 6")){
+            Level6 toBeEdited = levelService.level6Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        } else if (level.equals("Level 7")){
+            Level7 toBeEdited = levelService.level7Repository.getQuestionByQuestion(questionCaption);
+            questionText.setValue(questionCaption);
+            questionAnswer1.setValue(toBeEdited.getAnswer1());
+            questionAnswer2.setValue(toBeEdited.getAnswer2());
+            questionAnswer3.setValue(toBeEdited.getAnswer3());
+            if (questionAnswer1.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("A");
+            else if (questionAnswer2.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("B");
+            else if (questionAnswer3.getValue().equals(toBeEdited.getCorrect()))
+                correctResponsesGroup.setSelectedItem("C");
+        }
+
+
+
+        cancelChangesButton.addClickListener(event->{editQuestionWindow.close();});
+        saveChangesButton.addClickListener(event->{
+            String response = getResponseSelection(correctResponsesGroup, questionAnswer1.getValue(),
+                    questionAnswer2.getValue(), questionAnswer3.getValue());
+            if (level.equals("Level 1")){
+                Level1 toBeAdded = levelService.level1Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level1Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 2")){
+                Level2 toBeAdded = levelService.level2Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level2Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 3")){
+                Level3 toBeAdded = levelService.level3Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level3Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 4")){
+                Level4 toBeAdded = levelService.level4Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level4Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 5")){
+                Level5 toBeAdded = levelService.level5Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level5Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 6")){
+                Level6 toBeAdded = levelService.level6Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level6Repository.save(toBeAdded);
+
+            } else if (level.equals("Level 7")){
+                Level7 toBeAdded = levelService.level7Repository.getQuestionByQuestion(questionCaption);
+                toBeAdded.setQuestion(questionText.getValue());
+                toBeAdded.setAnswer1(questionAnswer1.getValue());
+                toBeAdded.setAnswer2(questionAnswer2.getValue());
+                toBeAdded.setAnswer3(questionAnswer3.getValue());
+                toBeAdded.setCorrect(response);
+
+                levelService.level7Repository.save(toBeAdded);
+
+            }
+
+            setQuestionsLayout(levelsComboBox.getValue(), domainsComboBox.getValue());
+            editQuestionWindow.close();
+        });
+
+        editQuestionWindow.center();
+        getUI().addWindow(editQuestionWindow);
+
+//        PopupView editQuestionPopup = new PopupView("Edit Question", editQuestionLayoutContent);
+//        editQuestionPopup.setPopupVisible(true);
     }
 
     private String getResponseSelection(RadioButtonGroup responseGroup, String answer1, String answer2, String answer3) {

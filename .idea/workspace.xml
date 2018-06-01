@@ -29,14 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainQuizzerView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainQuizzerView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/MainQuizzerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+            <state relative-caret-position="173">
+              <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="95" selection-end-column="60" />
               <folding>
-                <element signature="e#4591#4592#0" expanded="true" />
-                <element signature="e#4642#4643#0" expanded="true" />
+                <element signature="e#4796#4797#0" expanded="true" />
+                <element signature="e#4847#4848#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,8 +45,8 @@
       <file leaf-file-name="AssessmentView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AssessmentView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,8 +55,8 @@
       <file leaf-file-name="LevelService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/service/LevelService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="70" column="44" lean-forward="true" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+            <state relative-caret-position="816">
+              <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -65,8 +65,8 @@
       <file leaf-file-name="quizzerUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/quizzerUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="237" column="84" lean-forward="false" selection-start-line="237" selection-start-column="84" selection-end-line="237" selection-end-column="84" />
+            <state relative-caret-position="3298">
+              <caret line="225" column="92" lean-forward="false" selection-start-line="225" selection-start-column="92" selection-end-line="225" selection-end-column="92" />
               <folding>
                 <element signature="method#showUsers#0;class#quizzerUI#0" expanded="false" />
                 <element signature="method#navigate#0;class#quizzerUI#0" expanded="false" />
@@ -78,18 +78,28 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="1088">
               <caret line="82" column="4" lean-forward="false" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminView.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AdminView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="54" selection-end-line="116" selection-end-column="60" />
+            <state relative-caret-position="204">
+              <caret line="598" column="65" lean-forward="true" selection-start-line="598" selection-start-column="65" selection-end-line="598" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Level1Repository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level1Repository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,25 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>widget</find>
-      <find>filenamerepo</find>
-      <find>login</find>
-      <find>view_name</find>
-      <find>mainqu</find>
-      <find>marian</find>
-      <find>produ</find>
-      <find>getr</find>
-      <find>getat</find>
-      <find>level1t</find>
-      <find>clic</find>
-      <find>retu</find>
-      <find>return</find>
-      <find>cance</find>
-      <find>new array</find>
-      <find>inpu</find>
-      <find>valo</find>
-      <find>levels</find>
-      <find>VA</find>
       <find>VALO</find>
       <find>THEME</find>
       <find>L</find>
@@ -136,10 +127,40 @@
       <find>questionCorrect.getValue()</find>
       <find>quizzer dom</find>
       <find>quizze</find>
+      <find>quizzer q</find>
+      <find>felici</find>
+      <find>Felicitari, ai trecut la nivelul urmator</find>
+      <find>Scorul tau este de</find>
+      <find>puncte</find>
+      <find>Ghinion, nu ai reusit sa treci! Mai invata!</find>
+      <find>Felicitari, ai trecut aceasta sesiune de training</find>
+      <find>Ghinion, nu ai reusit sa castigi! Mai invata!</find>
+      <find>Ai reusit sa termini jocul. Felicitari</find>
+      <find>ghi</find>
+      <find>Ghinion, nu ai reusit sa treci</find>
+      <find>delete question</find>
+      <find>elete question</find>
+      <find>imple</find>
+      <find>1</find>
+      <find>.getCaption()</find>
+      <find>toBeDeleted</find>
+      <find>tobed</find>
+      <find>edited</find>
     </findStrings>
     <replaceStrings>
       <replace>quizzer</replace>
       <replace>response</replace>
+      <replace>Congratulations, you managed to pass to the next level</replace>
+      <replace>Your score is</replace>
+      <replace>points</replace>
+      <replace>Unfortunately, you didn't managed to pass ! Keep learning !</replace>
+      <replace>Awesome, you managed to pass this training session</replace>
+      <replace>Too bad, you didn't manage to pass ! Keep learning !</replace>
+      <replace>You managed to finish the game! Amazing, congratulations</replace>
+      <replace>Bad luck, you didn't managed to pass</replace>
+      <replace>7</replace>
+      <replace>Caption</replace>
+      <replace>toBeEdited</replace>
     </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -197,10 +218,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level6Repository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level7Repository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level1Repository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/quizzerUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/Level3TestView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AdminView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/quizzerUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/MainQuizzerView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AdminView.java" />
       </list>
     </option>
   </component>
@@ -233,11 +254,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1351" />
-    <option name="y" value="-17" />
-    <option name="width" value="1609" />
-    <option name="height" value="860" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1440" />
+    <option name="width" value="1448" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -254,9 +274,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -297,6 +317,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="quizzer" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="quizzer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Quizzer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="quizzer" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,13 +342,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Licenta" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -598,7 +627,9 @@
       <workItem from="1524836245496" duration="163000" />
       <workItem from="1525716632994" duration="109000" />
       <workItem from="1526485991693" duration="3399000" />
-      <workItem from="1527016178515" duration="6721000" />
+      <workItem from="1527016178515" duration="7010000" />
+      <workItem from="1527613302535" duration="4550000" />
+      <workItem from="1527841755767" duration="4263000" />
     </task>
     <servers />
   </component>
@@ -608,15 +639,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141387000" />
+    <option name="totallyTimeSpent" value="150489000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1448" y="-8" width="1456" height="916" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1440" y="0" width="1448" height="900" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5025707" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10458453" sideWeight="0.49283153" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.048270892" sideWeight="0.49283153" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -630,12 +660,12 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26760563" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35339308" sideWeight="0.4974293" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run Dashboard" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33464053" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35339308" sideWeight="0.4974293" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290653" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2765043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14697406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -658,7 +688,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="38" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -957,13 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level1Repository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level6Repository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1011,18 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/quizzerUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="237" column="84" lean-forward="false" selection-start-line="237" selection-start-column="84" selection-end-line="237" selection-end-column="84" />
-          <folding>
-            <element signature="method#showUsers#0;class#quizzerUI#0" expanded="false" />
-            <element signature="method#navigate#0;class#quizzerUI#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,16 +1053,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="1088">
           <caret line="82" column="4" lean-forward="false" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AdminView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="116" column="60" lean-forward="false" selection-start-line="116" selection-start-column="54" selection-end-line="116" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -1066,28 +1069,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/service/LevelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="70" column="44" lean-forward="true" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
+        <state relative-caret-position="816">
+          <caret line="70" column="44" lean-forward="false" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AssessmentView.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/repository/Level1Repository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="148" column="0" lean-forward="true" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+        <state relative-caret-position="884">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/quizzerUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="225" column="92" lean-forward="false" selection-start-line="225" selection-start-column="92" selection-end-line="225" selection-end-column="92" />
+          <folding>
+            <element signature="method#showUsers#0;class#quizzerUI#0" expanded="false" />
+            <element signature="method#navigate#0;class#quizzerUI#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/MainQuizzerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+        <state relative-caret-position="173">
+          <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="95" selection-end-column="60" />
           <folding>
-            <element signature="e#4591#4592#0" expanded="true" />
-            <element signature="e#4642#4643#0" expanded="true" />
+            <element signature="e#4796#4797#0" expanded="true" />
+            <element signature="e#4847#4848#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AssessmentView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/quizzer/ui/view/AdminView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="598" column="65" lean-forward="true" selection-start-line="598" selection-start-column="65" selection-end-line="598" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>

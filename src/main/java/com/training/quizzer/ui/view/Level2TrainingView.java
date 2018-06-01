@@ -89,12 +89,12 @@ public class Level2TrainingView extends VerticalLayout implements View{
         resultLayout.addComponent(new Label());
         resultLayout.addComponent(new Label());
         if (result.equals("success")){
-            resultLayout.addComponent(new Label(" Felicitari, ai trecut aceasta sesiune de training !"));
+            resultLayout.addComponent(new Label(" Awesome, you managed to pass this training session !"));
         } else {
-            resultLayout.addComponent(new Label(" Ghinion, nu ai reusit sa treci !"));
+            resultLayout.addComponent(new Label(" Bad luck, you didn't managed to pass !"));
         }
         resultLayout.addComponent(new Label());
-        resultLayout.addComponent(new Label("Scorul tau este de " + userScore + " puncte"));
+        resultLayout.addComponent(new Label("Your score is " + userScore + " points"));
         resultLayout.addComponent(new Label());
         resultLayout.addComponent(returnButton);
         mainLayout.setVisible(false);
