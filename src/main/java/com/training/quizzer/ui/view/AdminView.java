@@ -72,12 +72,7 @@ public class AdminView extends HorizontalLayout implements View{
         Button deleteDomainButton = new Button("Delete Domain");
         deleteDomainButton.setWidth("150");
         deleteDomainButton.addClickListener(clickEvent -> {
-            domains.forEach(domain->{
-                if(domain.getValue()){
-                    Domain toBeDeleted = domainRepository.getDomainByName(domain.getCaption());
-                    domainRepository.delete(toBeDeleted);
-                }});
-            setDomainsLayout();
+            prepareDeleteDomainConfirmation();
         });
         manageDomainsLayout.addComponent(deleteDomainButton);
 
@@ -101,6 +96,38 @@ public class AdminView extends HorizontalLayout implements View{
         createDomainLayout.addComponents(createDomainButton, domainName);
         manageDomainsLayout.addComponents(new Label(""));
         manageDomainsLayout.addComponent(createDomainLayout);
+    }
+
+    private void prepareDeleteDomainConfirmation() {
+        Window confirmDeleteDomainWindow = new Window("Delete Domain Confirmation");
+        VerticalLayout confirmDeleteDomainLayout = new VerticalLayout();
+        confirmDeleteDomainLayout.addComponent(new Label("Are you sure that you want to delete these domains ?"));
+        HorizontalLayout confirmButtonsLayout = new HorizontalLayout();
+
+        Button confirmDeleteButton = new Button("Confirm");
+        confirmDeleteButton.setWidth("150");
+        Button cancelDeleteButton = new Button("Cancel");
+        cancelDeleteButton.setWidth("150");
+
+        cancelDeleteButton.addClickListener(event->{confirmDeleteDomainWindow.close();});
+        confirmDeleteButton.addClickListener(event->{
+            deteleDomains();
+            confirmDeleteDomainWindow.close();
+        });
+        confirmButtonsLayout.addComponents(confirmDeleteButton,cancelDeleteButton);
+        confirmDeleteDomainLayout.addComponent(confirmButtonsLayout);
+        confirmDeleteDomainWindow.setContent(confirmDeleteDomainLayout);
+        getUI().addWindow(confirmDeleteDomainWindow);
+        confirmDeleteDomainWindow.center();
+    }
+
+    private void deteleDomains() {
+        domains.forEach(domain->{
+            if(domain.getValue()){
+                Domain toBeDeleted = domainRepository.getDomainByName(domain.getCaption());
+                domainRepository.delete(toBeDeleted);
+            }});
+        setDomainsLayout();
     }
 
     private void setDomainsLayout() {
@@ -150,33 +177,7 @@ public class AdminView extends HorizontalLayout implements View{
         Button deleteQuestionsButton = new Button("Delete Question");
         deleteQuestionsButton.setWidth("150");
         deleteQuestionsButton.addClickListener(clickEvent -> {
-            String level = levelsComboBox.getValue();
-            questions.forEach( question -> {
-                if(question.getValue()){
-                    if (level.equals("Level 1")){
-                        Level1 toBeDeleted = levelService.level1Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level1Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 2")){
-                        Level2 toBeDeleted = levelService.level2Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level2Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 3")){
-                        Level3 toBeDeleted = levelService.level3Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level3Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 4")){
-                        Level4 toBeDeleted = levelService.level4Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level4Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 5")){
-                        Level5 toBeDeleted = levelService.level5Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level5Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 6")){
-                        Level6 toBeDeleted = levelService.level6Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level6Repository.delete(toBeDeleted);
-                    } else if (level.equals("Level 7")){
-                        Level7 toBeDeleted = levelService.level7Repository.getQuestionByQuestion(question.getCaption());
-                        levelService.level7Repository.delete(toBeDeleted);
-                    }
-                }});
-            setQuestionsLayout(levelsComboBox.getValue(), domainsComboBox.getValue());
+            prepareDeleteQuestionConfirmation();
         });
         HorizontalLayout deleteAndEditButtonsLayout = new HorizontalLayout();
         Button editQuestionButton = new Button("Edit Question");
@@ -349,6 +350,59 @@ public class AdminView extends HorizontalLayout implements View{
         manageQuestionsLayout.addComponent(addQuestion);
 
         addComponent(manageQuestionsLayout);
+    }
+
+    private void prepareDeleteQuestionConfirmation() {
+        Window confirmDeleteQuestionWindow = new Window("Delete Question Confirmation");
+        VerticalLayout confirmDeleteQuestionLayout = new VerticalLayout();
+        confirmDeleteQuestionLayout.addComponent(new Label("Are you sure that you want to delete these questions ?"));
+        HorizontalLayout confirmButtonsLayout = new HorizontalLayout();
+        
+        Button confirmDeleteButton = new Button("Confirm");
+        confirmDeleteButton.setWidth("150");
+        Button cancelDeleteButton = new Button("Cancel");
+        cancelDeleteButton.setWidth("150");
+        
+        cancelDeleteButton.addClickListener(event->{confirmDeleteQuestionWindow.close();});
+        confirmDeleteButton.addClickListener(event->{
+            deleteQuestion();
+            confirmDeleteQuestionWindow.close();
+        });
+        confirmButtonsLayout.addComponents(confirmDeleteButton,cancelDeleteButton);
+        confirmDeleteQuestionLayout.addComponent(confirmButtonsLayout);
+        confirmDeleteQuestionWindow.setContent(confirmDeleteQuestionLayout);
+        getUI().addWindow(confirmDeleteQuestionWindow);
+        confirmDeleteQuestionWindow.center();
+    }
+
+    private void deleteQuestion() {
+        String level = levelsComboBox.getValue();
+        questions.forEach( question -> {
+            if(question.getValue()){
+                if (level.equals("Level 1")){
+                    Level1 toBeDeleted = levelService.level1Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level1Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 2")){
+                    Level2 toBeDeleted = levelService.level2Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level2Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 3")){
+                    Level3 toBeDeleted = levelService.level3Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level3Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 4")){
+                    Level4 toBeDeleted = levelService.level4Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level4Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 5")){
+                    Level5 toBeDeleted = levelService.level5Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level5Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 6")){
+                    Level6 toBeDeleted = levelService.level6Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level6Repository.delete(toBeDeleted);
+                } else if (level.equals("Level 7")){
+                    Level7 toBeDeleted = levelService.level7Repository.getQuestionByQuestion(question.getCaption());
+                    levelService.level7Repository.delete(toBeDeleted);
+                }
+            }});
+        setQuestionsLayout(levelsComboBox.getValue(), domainsComboBox.getValue());
     }
 
     private void handleQuestionEditing() {
